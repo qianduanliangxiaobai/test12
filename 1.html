@@ -1,27 +1,98 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .time_zoon{max-width: 666px;margin: 0 auto;text-align: center;}
+    .time-over{display: none;}
+    .flex-box{display: flex;}
+    .flex-box div>p:nth-child(2){
+      font-size: 20px;
+      margin: 20px;
+    }
+  </style>
 </head>
 <body>
+  <div class="time_zoon">
+    <div class="flex-box">
+      <div style="margin: 0 auto;">
+        <div>
+          <p class="time-day">00</p>
+          <p>DAYS</p>
+        </div>
+        <div>
+          <p class="time-hour">00</p>
+          <p>HOURS</p>
+        </div>
+        <div>
+          <p class="time-minute">00</p>
+          <p>MINS</p>
+        </div>
+        <div>
+          <p class="time-second">00</p>
+          <p>SECS</p>
+        </div>
+      </div>
+    </div>
+    <p class="time">新年就快来到~~~~~~~~</p>
+    <p class="time-over">看见这个，2021一切大顺（发财）</p>
+  </div>
+<script src="./jquery.js"></script>
+    <script>
+      console.log(new Date("2020/12/25 16:00:00"))
+function countdown(fintimes) {
+ var newtime = new Date();
+ var fintime = new Date(fintimes); 
+ var mistiming = fintime.getTime() - newtime.getTime(); 
+ var days = Math.floor(mistiming / 1000 / 60 / 60 / 24);  
+ var hours = Math.floor(mistiming / 1000 / 60 / 60 % 24); 
+ var minutes = Math.floor(mistiming / 1000 / 60 % 60); 
+ var seconds = Math.floor(mistiming / 1000 % 60); 
+ days <10 ? days = "0"+days : days;    
+ hours <10 ? hours = "0"+hours : hours;
+ minutes <10 ? minutes = "0"+minutes : minutes;
+ seconds <10 ? seconds = "0"+seconds : seconds;
+ if(mistiming<=0){
+   days="00";
+   hours="00";
+   minutes="00";
+   seconds="00";
+   $(".time_zoon p.time").css("display","none");
+   $(".time_zoon p.time-over").css("display","block");
+ }
+ $(".time-day").html(days);
+ $(".time-hour").html(hours);
+ $(".time-minute").html(minutes);
+ $(".time-second").html(seconds);
+ 
+}  
+setInterval(function(){
+ countdown("2021-1-01 00:00:00");
+},1000);
+</script>
 
-<h1>this is my simple website</h1>
-<div class="flex_btn">
-    <a href="#">去往哪里</a>
-    <a href="#">去往哪里</a>
 
-</div>
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
+
+
+
 
 
 
